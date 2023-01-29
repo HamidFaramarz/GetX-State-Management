@@ -29,9 +29,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var count = 0.obs;
+  var dcount = 0.obs;
 
   void increment() {
     count++;
+  }
+
+  void decrement() {
+    dcount--;
   }
 
   @override
@@ -50,7 +55,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   increment();
                 },
-                child: Text("Increment"))
+                child: Text("Increment")),
+            ElevatedButton(
+                onPressed: () {
+                  decrement();
+                },
+                child: Text("Decrement")),
+            Obx(
+              () => Text("Derement value is: $dcount"),
+            ),
           ],
         ),
       ),
